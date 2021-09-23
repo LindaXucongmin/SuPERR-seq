@@ -42,7 +42,7 @@ cells_non_B = cells_non_plasma(selected_indices_figure1_gate2);
 data_non_B = data_non_plasma(:, selected_indices_figure1_gate2);
 
 %% NK cells
-figure(5);
+figure(3);
 before_gating_contour_plot(data_non_B, anti_seq_gene_names, 'CD3', 'CD56', outlier_percentage);
 set(gca, 'xlim', [-3, 20]);set(gca, 'ylim', [-3, 22]);
 
@@ -66,7 +66,7 @@ cells_T = cells_non_B(selected_indices_figure2_gate4);
 data_T = data_non_B(:, selected_indices_figure2_gate4);
 
 %% CD56hi
-figure(8);
+figure(4);
 before_gating_contour_plot(data_total_NK, anti_seq_gene_names, 'CD16', 'CD56', outlier_percentage);
 set(gca, 'xlim', [-3, 25]);set(gca, 'ylim', [-3, 22]);
 h81 = drawpolygon; h82 = drawpolygon;  
@@ -81,7 +81,7 @@ cells_NK = cells_toatl_NK(selected_indices_figure8_gate2);
 data_NK = data_total_NK(:, selected_indices_figure8_gate2);
 
 %% Different monocytes
-figure(9)
+figure(5)
 before_gating_contour_plot(data_non_NK, anti_seq_gene_names, 'CD14', 'CD16', outlier_percentage);
 set(gca, 'xlim', [-3, 15], 'ylim', [-3, 25]);
 
@@ -99,7 +99,7 @@ selected_indices_figure3_gate3 = manually_gating_v4(data_non_NK, anti_seq_gene_n
 cells_classical_monocyctes = cells_non_NK(selected_indices_figure3_gate3);
 
 %% CD4+ vs CD8+ T cells
-figure(10)
+figure(6)
 before_gating_contour_plot(data_T, anti_seq_gene_names, 'CD8a', 'CD4', outlier_percentage);
 set(gca, 'xlim', [-4, 35], 'ylim', [-3, 25]);
 
@@ -114,7 +114,7 @@ selected_indices_figure4_gate2 = manually_gating_v4(data_T, anti_seq_gene_names,
 cells_CD8hi_T = cells_T(selected_indices_figure4_gate2);
 
 %% Treg cells
-figure(11)
+figure(7)
 before_gating_contour_plot(data_CD4hi_T, anti_seq_gene_names, 'CD127', 'CD25', outlier_percentage);
 set(gca, 'xlim', [-5, 23], 'ylim', [-1, 10]);
 
