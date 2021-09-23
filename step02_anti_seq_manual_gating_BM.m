@@ -1,7 +1,7 @@
 clear all; clear all; clc
 addpath(genpath('tools'))
 
-%!! DO NOT close those figures with manually drawing gates
+%!! DO NOT close those figures while manually drawing gates
 %%
 load raw_data_DSB_ADT_BM.mat
 
@@ -15,7 +15,7 @@ raw_data_umis = log10(raw_data(end, :)+1);
 raw_data(end, :) = raw_data_umis;
  
 %% Plasma vs Non_Plasma cells gating
-figure(100);
+figure(1);
 before_gating_contour_plot(raw_data, anti_seq_gene_names, 'CD138', 'Total_Ig_trans',  outlier_percentage);
 set(gca, 'xlim', [-20, 70]);
 
@@ -33,7 +33,7 @@ cells_non_plasma = cell_names(selected_indices_figure0_gate3);
 data_non_plasma = raw_data(:, selected_indices_figure0_gate3);
 
 %% B cells gating 
-figure(10)
+figure(2)
 before_gating_contour_plot(data_non_plasma, anti_seq_gene_names, 'CD20', 'CD19', outlier_percentage);
 set(gca, 'xlim', [-10, 60], 'ylim', [-3, 25]);
 
@@ -49,7 +49,7 @@ cells_non_B = cells_non_plasma(selected_indices_figure1_gate2);
 data_non_B = data_non_plasma(:, selected_indices_figure1_gate2);
 
 %% Projenitors
-figure(2);
+figure(3);
 % before_gating_contour_plot(data_B, anti_seq_gene_names, 'CD10', 'CD34', outlier_percentage);
 before_gating_contour_plot(data_B, anti_seq_gene_names, 'CD10', 'CD21', outlier_percentage);
 set(gca, 'xlim', [-5, 45], 'ylim', [-5, 30]);
@@ -64,7 +64,7 @@ cells_naive_B = cells_B(selected_indices_figure2_gate1);
 cells_CD10hi_projenitors = cells_B(selected_indices_figure2_gate2);
 
 %% Non B subtypes
-figure(3)
+figure(4)
 before_gating_contour_plot(data_non_B, anti_seq_gene_names, 'CD11c', 'CD34', outlier_percentage);
 set(gca, 'xlim', [-10, 40], 'ylim', [-3,30]);
 
